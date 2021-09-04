@@ -11,9 +11,19 @@ public class AppController {
     @Value("${app.message}")
     private String appMessage;
 
+    @Value("${var: nenhuma.}")
+    private String variableEnvironment;
+
     @GetMapping("/")
     public String getAppMessage()
     {
         return appMessage;
+    }
+
+
+    @GetMapping("/var")
+    public String getVariable()
+    {
+        return "variable is defined"+variableEnvironment;
     }
 }
